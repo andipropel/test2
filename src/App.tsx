@@ -36,7 +36,10 @@ function App() {
   let modalTitle = "title";
   let result:any[] = convertResult();
   debugger;
-  let options = result.filter((s:any) => !s.activeSchedules).map((x:any) => ({label:x.name, code:x.code}));
+  let options = result
+                  .filter((s:any) => !s.hasOwnProperty("activeSchedules") || !s.activeSchedules)
+                  .map((x:any) => ({label:x.name, code:x.code}));
+  
   let activeOptions:SWPOptionParam[] = [];
   result.forEach(
     (s:any) => {
@@ -51,9 +54,10 @@ function App() {
     console.log(checkedCode);
   }
 
-  const handleClick = (code: string) => {
-    alert(code);
-  }
+  // const handleClick = (code: string) => {
+  //   alert(code);
+  //   //close modal
+  // }
 
   const handleActiveClick = (code: string) => {
     alert (code);
@@ -65,12 +69,12 @@ function App() {
         <SWPList
           options={activeOptions}
           clickFn={handleActiveClick}
+          closeFn={() => {console.log("close")}}
         />
         
         <SWPCheckboxGroup
           options={options} 
           checkFn={handleCheckboxChange}
-          clickFn={handleClick}
         />
       </Modal.Body>
 

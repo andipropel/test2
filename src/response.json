@@ -109,7 +109,8 @@
                 "code": "ls",
                 "name": "Losses schedule",
                 "formType": "TaxSchedule",
-                "maxAllowed": 1
+                "maxAllowed": 1,
+                "activeSchedules": ["12324124", "1312323"]
             }
         },
         {

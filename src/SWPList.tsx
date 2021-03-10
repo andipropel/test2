@@ -4,10 +4,11 @@ import { SWPOptionParam } from "./SWPCheckboxGroup";
 
 type SWPListParam = {
     options: SWPOptionParam[],
-    clickFn?: Function
+    clickFn?: Function,
+    closeFn?: Function
 }
 
-const SWPList: FunctionComponent<SWPListParam> = ({options, clickFn=undefined }) =>{
+const SWPList: FunctionComponent<SWPListParam> = ({options, clickFn=undefined, closeFn=undefined }) =>{
     
     return (
         <>
@@ -17,7 +18,8 @@ const SWPList: FunctionComponent<SWPListParam> = ({options, clickFn=undefined })
                         <SWPObjectChip 
                             label={o.label} 
                             code={o.code} 
-                            clickFn={clickFn} 
+                            clickFn={clickFn}
+                            closeFn={closeFn}
                         />
                 )
             }
