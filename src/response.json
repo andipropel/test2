@@ -1,0 +1,136 @@
+{
+    "data": [
+        {
+            "type": "fieldmetadataresponse",
+            "id": "Q13UFromLS",
+            "attributes": {
+                "labels": [
+                    {
+                        "label": "Tax losses carried forward to later income years",
+                        "auxLabel": "U"
+                    }
+                ]
+            },
+            "relationships": {
+                "schedules": {
+                    "data": [
+                        {
+                            "id": "b4fe98fd-45ba-412c-943d-fb99aa0b28d4",
+                            "type": "fieldschedulesmetadata"
+                        }
+                    ]
+                },
+                "workpapers": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "type": "fieldmetadataresponse",
+            "id": "Q8UnfrankedDividendsPaidK",
+            "attributes": {
+                "labels": [
+                    {
+                        "label": "Unfranked dividends paid",
+                        "auxLabel": "K"
+                    }
+                ]
+            },
+            "relationships": {
+                "schedules": {
+                    "data": [
+                        {
+                            "id": "c5b7564d-7752-4a51-a2a3-27c81f873795",
+                            "type": "fieldschedulesmetadata"
+                        }
+                    ]
+                },
+                "workpapers": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "type": "fieldmetadataresponse",
+            "id": "Q6IncomeB",
+            "attributes": {
+                "labels": [
+                    {
+                        "label": "Gross payments subject to foreign resident withholding (excluding capital gains)",
+                        "auxLabel": "B"
+                    }
+                ]
+            },
+            "relationships": {
+                "schedules": {
+                    "data": [
+                        {
+                            "id": "abbcb6df-d4c6-4d8d-858a-7ae91c541058",
+                            "type": "fieldschedulesmetadata"
+                        }
+                    ]
+                },
+                "workpapers": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "type": "fieldmetadataresponse",
+            "id": "Q8FrankedDividendsPaidJ",
+            "attributes": {
+                "labels": [
+                    {
+                        "label": "Franked dividends paid",
+                        "auxLabel": "J"
+                    }
+                ]
+            },
+            "relationships": {
+                "schedules": {
+                    "data": [
+                        {
+                            "id": "c5b7564d-7752-4a51-a2a3-27c81f873795",
+                            "type": "fieldschedulesmetadata"
+                        }
+                    ]
+                },
+                "workpapers": {
+                    "data": []
+                }
+            }
+        }
+    ],
+    "included": [
+        {
+            "type": "fieldschedulesmetadata",
+            "id": "b4fe98fd-45ba-412c-943d-fb99aa0b28d4",
+            "attributes": {
+                "code": "ls",
+                "name": "Losses schedule",
+                "formType": "TaxSchedule",
+                "maxAllowed": 1
+            }
+        },
+        {
+            "type": "fieldschedulesmetadata",
+            "id": "c5b7564d-7752-4a51-a2a3-27c81f873795",
+            "attributes": {
+                "code": "dis",
+                "name": "Dividend and interest schedule",
+                "formType": "TaxSchedule",
+                "maxAllowed": 1
+            }
+        },
+        {
+            "type": "fieldschedulesmetadata",
+            "id": "abbcb6df-d4c6-4d8d-858a-7ae91c541058",
+            "attributes": {
+                "code": "pss",
+                "name": "Non-individual PAYG payment summary schedule",
+                "formType": "TaxSchedule",
+                "maxAllowed": 1
+            }
+        }
+    ]
+}
