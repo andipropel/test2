@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import SWPObjectChip from "./SWPObjectChip";
+import {FormType } from './SWPCheckboxGroup';
 const Checkbox = require('@myob/myob-widgets').Checkbox;
 
 type SWPCheckboxParam = {
@@ -7,7 +8,8 @@ type SWPCheckboxParam = {
   label: string,
   isChecked?: boolean,
   changeFn?: Function,
-  clickFn?: Function
+  clickFn?: Function,
+  formType: FormType
 };
 
 const SWPCheckbox: FunctionComponent<SWPCheckboxParam> = (
@@ -16,7 +18,8 @@ const SWPCheckbox: FunctionComponent<SWPCheckboxParam> = (
     label, 
     isChecked = false,
     clickFn = undefined, 
-    changeFn = undefined
+    changeFn = undefined,
+    formType
   }) => {
     
     let chip = 
@@ -24,6 +27,7 @@ const SWPCheckbox: FunctionComponent<SWPCheckboxParam> = (
         label={label} 
         code={code} 
         clickFn={clickFn} 
+        formType={formType}
       />
   
     return (

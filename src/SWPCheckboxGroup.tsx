@@ -1,9 +1,15 @@
-import React, {useState, useEffect, FunctionComponent } from 'react';
+import React, {useState, FunctionComponent } from 'react';
 import SWPCheckbox from './SWPCheckbox';
 
+export enum FormType{
+    Schedule,
+    TaxWorkpaper
+}
+
 export type SWPOptionParam = {
-    code: string
-    label: string
+    code: string,
+    label: string,
+    formType: FormType
 };
 
 type SWPCheckboxGroupParam = {
@@ -26,24 +32,31 @@ const SWPCheckboxGroup: FunctionComponent<SWPCheckboxGroupParam> = ({options, ch
         return tempState;
     });
 
-    useEffect(() => {
+    const triggerCheckFn = (theState:any) => {
         if (checkFn) 
         {
-            let selectedCodes = Object.values(state)
+            let selectedCodes = Object.values(theState)
                                 .filter((x:any) => x.isChecked)
-                                .map((x:any) => x.code);
+                                .map((x:any) => ({ code: x.code, formType: x.formType }));
             checkFn(selectedCodes);
         }
-    }, [state, checkFn]);
+    }
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
-        var newObj = Object.assign({}, state[event.target.name]);
+    const checkboxChange = (code: string) => {
+        let newObj = Object.assign({}, state[code]);
         newObj.isChecked = !newObj.isChecked;
-        setState({ 
-            ...state, 
-            [event.target.name]: newObj 
-        });
+        let newState = {...state, [code]: newObj};
+        setState(newState); 
+        triggerCheckFn(newState);       
+    }
+    
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
+        checkboxChange(event.target.name);
     };
+
+    const handleClick = (code:string) => {
+        checkboxChange(code);
+    }
 
     return (
         <>
@@ -55,7 +68,8 @@ const SWPCheckboxGroup: FunctionComponent<SWPCheckboxGroupParam> = ({options, ch
                         label={s.label}
                         isChecked={s.isChecked}
                         changeFn={handleChange}
-                        clickFn={clickFn}
+                        clickFn={clickFn || handleClick}
+                        formType={s.formType}
                     />
             )
         }

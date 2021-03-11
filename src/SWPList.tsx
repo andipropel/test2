@@ -20,6 +20,7 @@ const SWPList: FunctionComponent<SWPListParam> = ({options, clickFn=undefined, c
                             code={o.code} 
                             clickFn={clickFn}
                             closeFn={closeFn}
+                            formType={o.formType}
                         />
                 )
             }
